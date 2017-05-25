@@ -1,0 +1,647 @@
+%a - Definición de la Clase del Documento 
+%----------------------------------------------------------------»
+
+
+%\documentclass[11pt,letterpaper]{article}
+\documentclass[a4paper,twocolumn,10pt]{article}
+
+%----------------------------------------------------------------»
+% b - Paquetes para trabajar en español 
+%----------------------------------------------------------------»
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{anysize}
+\usepackage{floatrow}
+\marginsize{3cm}{2.5cm}{1.5cm}{1.5cm}
+\usepackage[rightcaption]{sidecap} %para pies de tabla a la derecha
+
+
+
+%----------------------------------------------------------------»
+% c - Paquetes para solucionar el copiado del pdf
+%----------------------------------------------------------------»
+
+\usepackage{times}		
+\usepackage[T1]{fontenc}
+
+
+%----------------------------------------------------------------»
+% d - Paquetes especiales (Según las necesidades del documento)
+%----------------------------------------------------------------»
+
+\usepackage[colorinlistoftodos]{todonotes} %Para insertar notas al lado
+\usepackage{graphicx} %Para usar imágenes
+\usepackage{multirow, array}
+\usepackage{float} % para usar [H]
+\usepackage{tikz} %Para construir gráficos con código
+\usepackage{epigraph} %Hacer epígrafes
+\usepackage{multicol} %Construir múltiples columnas en el documento
+\usepackage{color} %Para darle color a la fuentes
+\usepackage{soul} %Para tachar palabras
+\usepackage{ulem} %Para subrayados y tachados especiales (\uuline, \uwave, \xout) Aunque casi nunca se usan, a veces pueden introducirse para remarcar algo. 
+
+
+%----------------------------------------------------------------»
+% e - Paquete para generar links (Si el doc. tiene hipervínculos)
+%----------------------------------------------------------------»
+
+\usepackage[backref]{hyperref}	% Soporte para generación de Links - Ojalá siempre el último paquete nombrado
+\hypersetup{pdfborder={0 0 0}}	% Quitarle los bordes a los links
+
+%----------------------------------------------------------------»
+% f - Arreglos sobre la estética de los párrafos (Opcional)
+%----------------------------------------------------------------»
+
+\setlength\parindent{8pt}	% Si se quiere suprimir la sangría de los párrafos
+\setlength{\parskip}{2mm}	% Si se quiere espaciar todos los párrafos
+
+
+
+%----------------------------------------------------------------»
+% g - Autor, título y fecha del Documento
+%----------------------------------------------------------------»
+
+
+%================================================================»
+% II - CUERPO DEL DOCUMENTO
+%================================================================»
+
+% Después de todo el preámbulo nos adentramos en la escritura del trabajo. El CUERPO DEL DOCUMENTO en LaTeX siempre inicia con las siguientes dos instrucciones:
+
+\begin{document}
+
+ \title{\textbf{Difracción de rayos X: el método de Rietveld }}
+\author{\large{Carmen García Bermejo}\\ 
+\textcolor{white}{a}\\
+\normalsize Laboratorio de Física IV. Estructura de la materia}
+\date{15 de Marzo de 2017} 
+
+
+% En el CUERPO DEL DOCUMENTO es donde vamos a encontrar:
+
+% - Abstract
+% - Secciones y subsecciones
+% - Tabla de contenido
+% - Tablas
+% - Gráficos
+% - Notas al pie y al márgen
+% - Párrafos especiales (cita)
+% - Bibliografía
+
+%----------------------------------------------------------------»
+% a - Creación del resumen (Abstract)
+%----------------------------------------------------------------»
+
+% El abstract es el resumen del ensayo. Se expone, entre cuatro y siete líneas, la naturaleza del escrito, su tema, el tipo de indagación y los intereses del texto. 
+%\noindent
+
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{abstract}
+ \normalsize Se estudia mediante difracción de rayos \textit{X} la estructura cristalina de unos compuestos seleccionados (galeno (PbS) y otro problema) empleando  los métodos de caracterización apropiados, en este caso, el análisis de Rietveld. \\
+ \\
+
+
+\end{abstract}
+\end{@twocolumnfalse}
+]
+
+
+
+
+%\begin{abstract}
+%Se estudia mediante difracción de rayos \textit{X} la estructura cristalina de unos compuestos seleccionados (galeno (PbS) y otro problema) empleando  los métodos de caracterización apropiados (análisis de Rietveld). 
+
+
+%\end{abstract}
+
+%----------------------------------------------------------------»
+% b - Escribir el Epígrafe (Opcional)
+%----------------------------------------------------------------»
+
+% Uno puede escribir o no un epígrafe al principio de un ensayo. Ustedes quizá lo han visto con frecuencia en diferentes tipos de escritos (ensayos, novelas, etc.) - Lo importante es que el epígrafe aluda a algo importante que usted quiere comunicar en el ensayo. 
+
+%----------------------------------------------------------------»
+% c - Inicio de las secciones del documento
+%----------------------------------------------------------------»
+
+\section{Introducción} % La instrucción  \section con el signo * hace que no quede numerado.
+
+
+% En la «Introducción» se escribe una preparación a la discertación. La idea es atrapar al lector con sus propios intereses. Hacerle caer en cuenta que a él le gustaría leer sobre lo que usted le va a contar, especialmente le gustaría saber las razones por las cuales él debería ser un inventor como usted!!
+
+Un difractómetro es un aparato que emite rayos \textit{X} sobre una muestra a estudiar y recoge los resultados obtenidos. En el momento en el que un haz de rayos \textit{X} incide en un cristal, una parte atraviesa el cristal y la otra es dispersada por los electrones de los átomos del cristal. 
+
+   En este proceso, gran parte de los fotones disipados se anulan entre sí, pues sus ondas interfieren. Sin embargo, otros circulan en ciertas direcciones y salen en fase dando sus ondas lugar a un haz de rayos \textit{X} difractados. Las direcciones en que los fotones se refuerzan están determinadas por la Ley de Bragg:  
+   
+\begin{equation}
+n\lambda = 2dsen\theta  
+\end{equation}
+
+
+Donde $n$ es un número entero (en este experimento se emplea, generalmente, n=1), $\lambda$ es la longitud de onda de los rayos \textit{X} ($\lambda = 1.5418 \rm \textcolor{white}{a} \dot{A})$, $d$ es la distancia entre los planos de la red cristalina y $\theta$ es el ángulo entre los rayos incidentes y los planos de dispersión.
+
+A partir de $d$ es posible determinar el parámetro de malla $a$. Esto se define como la distancia constante entre celdas unitarias. Para poder identificar un sistema de planos cristalográficos se les asignan los índices de Miller, que se indican genéricamente con las letras $hkl$. La relación existente entre $d$, $a$ y los índices de Miller viene dada por:
+
+\begin{equation}
+\frac{1}{d_{hkl}^2} = \frac{(h^2 + k^2 + l^2)}{a^2}
+\end{equation}
+
+
+Se obtienen diferentes tipos de estructura cristalina en función del tipo de red, es decir, dependiendo de la forma en la que los átomos se distribuyen dando lugar a motivos que se repiten. De este modo, se tienen la redes de Bravais: si los átomos están en los vértices, tenemos una red primitiva (P);
+si en la celdilla existen puntos en los vértices y en los centros de dos caras paralelas, se denomina centrada en dos caras paralelas (tipo A, B ó C, según las caras en cuyos centros estén los puntos), si un átomo se encuentra en el centro se denomina  I y si se encuentran en las caras, se trata de una  F. 
+
+Es posible determinar si la muestra es cúbica P, I o F a partir de los índices de Miller. Para ello, se emplean las extinciones sistemáticas y presentan las siguientes condiciones:
+
+\begin{itemize}
+\item Para la red P, no hay ningún tipo de restricción en $hkl$.
+\item Para la red I, (h + k + l) no debe ser nunca impar.
+\item Para la red F, $h$, $k$ y $l$ deben ser o todos pares o todos impares.
+\end{itemize}
+
+
+En el difractómetro, los rayos \textit{X} chocan con la muestra formada por un  polvo, pues ésta debe estar compuesta por un gran número de pequeños fragmentos cristalinos desorientados de forma ideal al azar unos respecto a otros, de tal forma que no exista ningún tipo de correlación en la orientación. Sólo los planos de la red que contienen un gran número de átomos reflejan los rayos \textit{X} de forma apreciable. Una vez realizada la difracción, se obtiene un difractograma de la muestra.
+
+La muestra se coloca a un ángulo arbitrario $\theta$, y se van tomando medidas de intensidad $I$ a diferentes valores de $2\theta$, de forma que dentro del difractograma se observan picos de intensidad sobre los que se determinan los índices de Miller. Así mismo, es posible determinar $I$ para un determinado pico $hkl$ a partir de:
+
+\begin{equation}
+I_{hkl} \propto G(\theta) \cdot m_{hkl} \cdot |F_{hkl}|^2
+\end{equation}
+
+Donde $G(\theta)$ es el factor geométrico y depende del ángulo, $m_{hkl}$ es la multiplicidad, es decir, el número de planos posibles con $hkl$; y $|F_{hkl}|^2$ es el factor de estructura, y viene definido por:
+
+\begin{equation}
+F_{hkl} = \sum_{j=1}^{j=n} f_j[cos2\pi r  + isin2\pi r]
+\end{equation}
+
+
+Donde $r$ es $hx_j + ky_j + lz_j$, $f_j$ es el factor de scattering atómico y $j$ es el elemento.
+% ----------------------
+% La intrucción \underline se usa para subrayar frases. 
+% ----------------------
+\section{Método experimental}
+
+ Para realizar el análisis de la muestra, inicialmente ésta se pulveriza y se coloca en el portamuestras, evitando que queden partículas alrededor de éste que puedan falsar el análisis. 
+ 
+  A continuación, el anticátodo emite rayos \textit{X}. Sus  haces se hacen paralelos en el tubo colimador e inciden sobre el sólido pulverizado, en este caso galena (PbS), mientras éste gira a medida que se realiza el análisis. Los resultados se recogen en el contador electrónico, que se encuentra a un ángulo 2$\theta$ con respecto al tubo colimador. 
+  
+ De esta forma, se representa en una gráfica  $2\theta$ en el eje X, en grados, y la intensidad en el eje Y, de forma que se obtiene un difractograma. Se trasladan los valores de $2\theta$ de los picos de intensidad a una tabla, y mediante la Ley de Bragg de la Ec.(1), se obtiene la distancia interplanar $d$. Dado que se trata de un sistema cúbico, es posible emplear la relación que multiplicando $\frac{sin^2\theta_n}{sin^2\theta_1}$ por un entero, se puede redondear a un entero $N$ y a partir de éste, se pueden determinar los índices de Miller. De este modo, es posible calcular el valor del parámetro de malla $a$ a partir de la Ec.(2).
+
+Una vez obtenidos estos parámetros, se estudia la estructura atómica. Para ello, dado que se sabe que es cúbica, se emplean las extinciones sistemáticas para concluir si se trata de una cúbica P, I o F.
+
+Seguidamente, se calcula la intensidad relativa mediante la Ec.(3). Para ello, se opera entre dos picos muy próximos para evitar así el factor geométrico $G(\theta)$. Así mismo,  determina el factor de multiplicidad correspondiente a los picos seleccionados y se supone que tenemos zincblenda (ZnS) y cloruro de sodio (NaCl) para el factor de estructura mediante la Ec.(4).
+
+Una vez calculado el valor de la intensidad relativa, se compara con el que se obtiene a partir del difractómetro y se determina con que estructura (ZnS o NaCl) se asemeja más.
+
+Terminado el proceso "manual", se introducen los datos inicialmente obtenidos del proceso experimental en el ordenar, en un programa informático $TOPAS$. Se ajustan los picos de forma que el programa devuelve los índices de Miller $hkl$  y sobre cada pico, al clickar sobre él, el valor de 2$\theta$ correspondiente.
+
+Una vez indexados los picos, se copian los valores de 2$\theta$ obtenidos en el programa y se procede a estudiar la estructura del material estudiado, donde se seleccionan cúbica P, cúbica I y cúbica F y se comprueba sobre cúal se ajusta más, en caso de hacerlo, por lo que se determina la estructura del material y se obtiene el parámetro de malla.
+
+Finalmente, se realiza el mismo proceso para el material problema.
+
+
+
+
+
+
+
+
+\section{Resultados y análisis}
+% Aquí se empieza con los argumentos. El título de cada uno de ellos puede modificarse y ser más acorde con el tipo de argumento que va a ofrecer. Recuerde que se trata de RAZONES y no de OPINIONES. 
+De la difracción de rayos $X$ se obtiene el siguiente difractograma \footnote{Se incluye la imagen en tamaño óptimo en el apéndice 5.2.}:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.1\textwidth]{Dibujo2.jpg}
+\caption{Difractograma obtenido. En el eje $X$ se muestra el ángulo 2$\theta$ y en el eje $Y$ la intensidad.} 
+\label{Figura 1:Dibujo2}
+\end{figure}
+
+De cada pico se obtiene su correspondiente valor en 2$\theta$ y se procede a indexar cada pico:
+
+\begin{table}[H]
+\caption{ Registro de los valores obtenidos de 2$\theta$. Como se trata de una estructura cúbica, es posible determinar $hkl$ realizando el producto de un entero $n$ por $\frac{sin^2\theta_n}{sin^2\theta_1}$ con $\theta_1$ = 13.025 º, obteniéndose otro entero $N$ para cada valor. A partir de éste, se determina $hkl$.}
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|}
+nº & $2\theta$ / º & $sin^2\theta$ & $\frac{sin^2\theta_n}{sin^2\theta_1}$ & $n\cdot\frac{sin^2\theta_n}{sin^2\theta_1}$  & N & $hkl$
+\\\hline 
+1 & 26.05 & 0.0508  & 1.000 & 3.000 & 3 & (111) \\
+2 & 30.14 & 0.0676  & 1.331 & 3.993 & 4 & (200)\\
+3 & 43.13 & 0.1351  & 2.660 & 7.979 & 8 &  (220)\\
+4 & 51.05 & 0.1857  & 3.656 & 10.966 & 11 & (311)\\
+5 & 53.53 & 0.2028  & 3.993 & 11.978 & 12 & (222)\\
+6 & 62.62 & 0.2701  & 5.317 & 15.950 & 16 & (400)\\
+7 & 68.96 & 0.3205  & 6.310 & 18.929 & 19 & (331)\\
+8 & 71.02 & 0.3374  & 6.642 & 19.926 & 20 & (420)\\
+9 & 79.05 & 0.4050  & 7.974 & 23.921 & 24 & (422)\\
+
+
+
+\end{tabular}
+\end{table}
+
+Se puede comprobar que cada índice $hkl$ se ajusta a $N = h^2 + k^2 + l^2$.
+
+\textbf{Posiciones en la celda de los átomos}
+
+A partir de las extinciones sistemáticas, es posible determinar con los índices de Miller las posiciones en la celda de los átomos, de esta forma:
+\begin{itemize}
+
+\item No es P, dado que hay restricciones en $hkl$. Por ejemplo, no aparece el (100).
+\item Tampoco es I, puesto que al sumar $h+k+l$ en  (111) os da un número impar (3, concretamente).
+
+\end{itemize}
+
+De este modo, la única opción posible es que se trate de una cúbica F.Es posible comprobar que cumple la condición de que $h, k$ y $l$ son siempre o todos pares o todos impares.
+
+\textbf{Parámetros $d$ y $a$}
+
+A continuación, eligiendo el ángulo 2$\theta$ cuyo índice $(hkl)$ sea (200), mediante la Ley de Bragg de la Ec.(1) se determina el valor de la distancia interplanar $d$:
+
+$$
+d = \frac{2sen(\theta)}{n \lambda} = \frac{2 \cdot sen(30.14/2)}{1 \cdot 1.5418 } = 2.9650 \textcolor{white}{a} \rm \dot{A}
+$$
+
+De este modo, a partir de la Ec.(2) se obtiene el parámetro de malla:
+
+$$
+a = d \cdot (h^2 + k^2 + l^2) = 2.9650 \cdot 2 = 5.9300 \textcolor{white}{a} \rm \dot{A}
+$$
+
+\textbf{Intensidad relativa y estructura atómica}
+
+Obtenidos los parámetros $d$ y $a$, se procede a determinar la estructura atómica de la muestra. Se emplea la Ec.(3) para el cálculo de la intensidad de dos determinados picos $hkl$  y $h'k'l'$  y obtener la correspondiente intensidad relativa $I_r$. 
+
+Se seleccionan los picos (331) y (420) que se encuentran muy próximos entre sí, permitiendo despreciar el término geométrico $G(\theta)$. Se determinan sus correspondientes multiplicidades, donde $m_{331} = 24$ y $m_{420} = 24$, por lo que hay 24 planos equivalentes por simetría para dichos índices. 
+
+A continuación, se obtiene el factor de estructura para cada uno a través de la Ec.(4). Para ello, se ha decidido estudiar si la estructura de la muestra de galena es semejan a la del NaCl o la del ZnS (recordemos que la galena es PbS). De este modo:
+
+
+Para NaCl, donde los correspondientes motivos son Na (0,0,1/2) y Cl (0,0,0):
+$$
+F_{331} =  4[-f_{Na} + f_{Cl}]\footnote{El procedimiento se desarrolla en el apéndice 5.1.}
+$$
+$$
+F_{420} = 4[f_{Na} + f_{Cl}]
+$$
+
+Para ZnS, donde los correspondientes motivos  Zn (0,0,0) y S (1/4,1/4,1/4):
+$$
+F_{331} =  4[f_{Zn} - if_{S}]
+$$
+$$
+F_{420} = 4[f_{Zn} - f_{S}]
+$$
+
+De este modo, a partir de Ec.(3):
+
+Para NaCl:
+$$
+I_r = \frac{I_{331}}{I_{420}} = \frac{ [-f_{Na} + f_{Cl}]^2}{[f_{Na} + f_{Cl}]^2}
+$$
+Para ZnS:
+$$
+I_r = \frac{I_{331}}{I_{420}} = \frac{ [f_{Zn} - if_{S}]^2}{[f_{Zn} - f_{S}]^2}
+$$
+
+Y dados $f_{Pb} = 46.4$ y $f_{S} = 6.8$, sustituyendo Pb por Na y por Zn y S por Cl:
+
+En NaCl:
+$$
+I_r =  \frac{ [-46.4 + 6.8]^2}{[46.4 + 6.8]^2} = 0.55
+$$
+
+En ZnS:
+
+$$
+I_r = \frac{ [46.4 - 6.8i]^2}{[46.4 - 6.8]^2} = 1.40
+$$
+
+Determinando la intensidad relativa de los (331) y (420) en el difractograma de la Figura 1, se obtiene $I_r = 0.66$, de este modo, se observa que $I_{331} < I_{420}$, y por tanto, la estructura a la que más se asemeja la muestra es a la del NaCl.
+
+\textbf{Método informático}
+
+\textbf{\small Muestra de galena}
+
+Se introducen los datos del difractograma en el programa $TOPAS$ y se procede a obtener el valor $2\theta$ de cada pico:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.05\textwidth]{Dibujo.JPG}
+\caption{Difractograma con el valor de $2\theta$ en cada pico. En el eje $X$ se muestra el ángulo 2$\theta$ y en el eje $Y$ la intensidad.} 
+\label{Figura 1:Dibujo}
+\end{figure}
+
+ Aplicando el método de Rietveld, el programa devuelve los índices de Miller (que son los mismos que los de la Tabla 1) y se obtiene para el parámetro de malla un valor de $a = 5.9370 \rm \dot{A}$ y una estructura cúbica F.
+ 
+ \textbf{\small Muestra problema}
+ 
+ Se procede a estudiar la muestra problema con el mismo proceso realizado anteriormente. Se tiene el siguiente difractograma\footnote{Se incluye la imagen en tamaño óptimo en el apéndice 5.2.}:
+ 
+ \begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{problema2.JPG}
+\caption{Difractograma de la muestra problema. En el eje $X$ se muestra el ángulo 2$\theta$ y en el eje $Y$ la intensidad.} 
+\label{Figura 1:Dibujo}
+\end{figure}
+
+
+El programa devuelve los índices de Miller de cada pico, los cuales son:
+
+\begin{table}[H]
+\caption{ Registro de los valores obtenidos de 2$\theta$ y de los índices de Miller $hkl$ para cada pico.}
+\centering
+\begin{tabular}{c|c|c|}
+nº & $2\theta$ / º & $hkl$
+\\\hline 
+1 & 23.02 & (012) \\
+2 & 29.39 &  (104)\\
+3 & 31.47 &  (006)\\
+4 & 35.91 &  (110)\\
+5 & 43.09 & (123)\\
+6 & 47.05 & (282)\\
+7 & 47.52 &  (024)\\
+8 & 48.40 &  (018)\\
+
+\end{tabular}
+\end{table}
+
+Se determina que se trata de una estructura romboédrica hexagonal. Para los parámetros de red se obtiene un valor de $a = 5.0021 \rm \dot{A}$, $b = 5.0021 \rm \dot{A}$ y  $c = 17.0585 \rm \dot{A}$,  con $\alpha=90$º, $\beta = 90$º y $\gamma = 120$º.
+
+
+\section{Conclusión}
+
+El método de Rietveld empleado responde correctamente con el modelo teórico,lo que permite obtener la estructura de las muestras a estudiar. Así mismo, la difracción de rayos X juega un papel fundamental en el estudio de la estructura de la materia. 
+
+Finalmente, para este experimento, se determina que la galena posee una estructura cúbica F con $d=2.9650 \textcolor{white}{a} \rm \dot{A}$ y $a=5.9300 \textcolor{white}{a} \rm \dot{A}$. Y, para la muestra problema, que se trata de calcita, la estructura es una romboédrica hexagonal cuyos parámetros de red son $a = 5.0021 \rm \dot{A}$, $b = 5.0021 \rm \dot{A}$ y  $c = 17.0585 \rm \dot{A}$, con $\alpha=90$º, $\beta = 90$º y $\gamma = 120$º.
+ 
+\section{Apéndice}
+
+
+
+
+\textbf{5.1. Operaciones}
+
+Para NaCl:
+
+$$
+F_{331} = \sum_{j=1}^{j=n} [f_{Na}[cos2\pi(3x0 + 3x0 + 1x\frac{1}{2}) +
+$$
+$$
++ isin2\pi(3x0 + 3x0 + 1x\frac{1}{2})] 
+$$
+$$
++ f_{Cl}[cos2\pi(3x0 + 3x0 + 1x0) +
+$$
+$$
++ isin2\pi(3x0 + 3x0 + 1x0)]] = 4[-f_{Na} + f_{Cl}]
+$$
+
+$$
+F_{420} = \sum_{j=1}^{j=n} [f_{Na}[cos2\pi(4x0 + 2x0 + 0x\frac{1}{2}) +
+$$
+$$
++ isin2\pi(4x0 + 2x0 + 0x\frac{1}{2})] 
+$$
+$$
++ f_{Cl}[cos2\pi(4x0 + 2x0 + 0x0) +
+$$
+$$
++ isin2\pi(4x0 + 2x0 + 0x0)]] = 4[f_{Na} + f_{Cl}]
+$$
+
+Para ZnS:
+
+$$
+F_{331} = \sum_{j=1}^{j=n} [f_{Zn}[cos2\pi(3x0 + 3x0 + 1x0) +
+$$
+$$
++ isin2\pi(3x0 + 3x0 + 1x0)] 
+$$
+$$
++ f_{S}[cos2\pi(3x0 + 3x0 + 1x0) +
+$$
+$$
++ isin2\pi(3x0 + 3x0 + 1x0)]] = 4[f_{Zn} - if_{S}]
+$$
+
+$$
+F_{420} = \sum_{j=1}^{j=n} [f_{Zn}[cos2\pi(4x0 + 2x0 + 0x0) +
+$$
+$$
++ isin2\pi(4x0 + 2x0 + 0x0)] 
+$$
+$$
++ f_{S}[cos2\pi(4x\frac{1}{4} + 2x\frac{1}{4} + 0x\frac{1}{4}) +
+$$
+$$
++ isin2\pi(4x\frac{1}{4} + 2x\frac{1}{4} + 0x\frac{1}{4})]] = 4[f_{Zn} - f_{S}]
+$$
+
+\newpage
+ 
+\textbf{5.2. Difractogramas}
+
+
+Para la Figura 1 de la muestra de la Galena (PbS):
+\begin{figure}[H]
+\centering
+\includegraphics[width=2.2\textwidth]{Dibujo2.jpg}
+\caption{Tamaño óptimo de la Figura 1.} 
+\label{Figura 1:Dibujo2}
+\end{figure}
+
+Para la Figura 3 de la muestra problema: 
+ \begin{figure}[H]
+\centering
+\includegraphics[width=2.2\textwidth]{problema2.JPG}
+\caption{Tamaño óptimo de la Figura 3.} 
+\label{Figura 1:Dibujo}
+\end{figure}
+
+% Este apartado se construye en dos columnas. Eso es gracias al paquete «multicol» que escribimos en el «preámbulo». Determinamos la cantidad de columnas dentro del segundo corchete del ambiente «multicols», tal y como sigue:
+\begin{thebibliography}{99}
+
+
+\bibitem{El poder de los super poderes} TIPLER I MOSCA \textit{Física para ciencia y tecnología}. Volumen 1. 6ª edición. Editorial Reverté  2008. 2
+\bibitem{El poder de los super poderes} TAYLOR \textbf{Física para la ciencia y tecnología}. Editorial Reverté. 6ª edición. Páginas: 13$-$35
+\bibitem{Pode}  \textit{Determinación de las estructuras cristalinas}. El Curso de ciencia de los materiales. Universitat Politècnica de Valéncia. Fecha de visita: 718-03-2015. \textit{ http://personales.upv.es/~avicente/curso/unidad3/determinacion.html }
+\end{thebibliography}
+
+\newpage
+
+\section{Cuestiones}
+
+\textbf{1.- } Sí es posible distinguir entre las redes P, I y F mirando al patrón indexado de difracción, pues hay operaciones de simetría en el cristal que dejan una huella que consiste en anular algunas intensidades de un modo sistemático, reconocible mediante reglas sencillas. Éstas son las extinciones sistemáticas  y para las redes P, I y F son: 
+
+\begin{itemize}
+\item Para la red P, no hay ningún tipo de restricción en $hkl$. Es decir, no se salta ningún $hkl$.
+\item Para la red I, $(h + k + l)$ no debe ser nunca impar.
+\item Para la red F, $h$, $k$ y $l$ deben ser o todos pares o todos impares en el mismo índice.
+\end{itemize}
+
+\textbf{2.- } Dada la Ec.(3), la multiplicidad $m_{hkl}$ es directamente proporcional a la intensidad $I_{hkl}$, por lo que a mayor multiplicidad, mayor intensidad. Los valores de multiplicidad para (100), (110), (111), (420) y (331) son:
+
+\begin{itemize}
+\item Para (100), existen: ($\pm$1,0,0), (0,$\pm$1,0), (0,0,$\pm$1), luego $m_{100}$ = 6.
+\item Para (110), existen: (110), (101), (011), (-1,1,0), (1,-1,0), (-1,-1,0), (-1,0,1), (1,0,-1), (-1,0,-1), (0,-1,1), (0,1,-1), (0,-1,-1),   luego $m_{110}$ = 12.
+\item Para (111), existen: (1,1,1), (-1,1,1), (1,-1,1), (1,1,-1), (-1,-1,1), (-1,1,-1), (1,-1,-1), (-1,-1,-1),   luego $m_{111}$ = 8.
+\item Para (420), existen: (4,2,0), (0,4,2), (2,0,4), (4,0,2), (0,2,4), (2,4,0), ... cada uno de estos 6 puede escribirse de 3 formas negativas: siendo solo el 4 negativo, solo el 2 o ambos a la vez. De este modo: $m_{420} = 6 + 6\cdot 3 = 24$.
+\item Para (331), existen: (3,3,1), (3,1,3), (1,3,3),  ... cada uno de estos 3 puede escribirse de 7 formas negativas: siendo solo un 3 negativo (esto nos da 2 posibilidades en cada uno), solo el 1, los dos 3 negativos, un 3 y el 1 negativos o todos a la vez. De este modo: $m_{331} = 3 + 3\cdot 7 = 24$.
+\end{itemize}
+
+\textbf{3.- }  Sea una muestra de GaP donde $f_{Ga} = 18.0$ y $f_{P} =7.5$, se determina mediante las Ec.(3) y Ec.(4) si su estructura es similar a la del CsCl, NaCl y ZnS, empleando los picos (420) y (320):
+
+Para CsCl, donde los correspondientes motivos son Cs (1/2,1/2,1/2) y Cl (0,0,0):
+$$
+F_{331} = \sum_{j=1}^{j=n} [f_{Cs}[cos2\pi(3x\frac{1}{2} + 3x\frac{1}{2} + 1x\frac{1}{2}) +
+$$
+$$
++ isin2\pi(3x\frac{1}{2} + 3x\frac{1}{2} + 1x\frac{1}{2})] 
+$$
+$$
++ f_{Cl}] = 4[-f_{Cs} + f_{Cl}]
+$$
+$$
+F_{420} = \sum_{j=1}^{j=n} [f_{Cs}[cos2\pi(4x\frac{1}{2} + 2x\frac{1}{2} + 0x\frac{1}{2}) +
+$$
+$$
++ isin2\pi(4x\frac{1}{2} + 2x\frac{1}{2} + 0x\frac{1}{2})] 
+$$
+$$
++ f_{Cl}] = 4[f_{Cs} + f_{Cl}]
+$$
+
+Para NaCl, donde los correspondientes motivos son Na (0,0,1/2) y Cl (0,0,0):
+$$
+F_{331} =  4[-f_{Na} + f_{Cl}]
+$$
+$$
+F_{420} = 4[f_{Na} + f_{Cl}]
+$$
+
+Para ZnS, donde los correspondientes motivos  Zn (0,0,0) y S (1/4,1/4,1/4):
+$$
+F_{331} =  4[f_{Zn} - if_{S}]
+$$
+$$
+F_{420} = 4[f_{Zn} - f_{S}]
+$$
+
+Y dados $f_{Ga} = 180$ y $f_{P} =7.5$, sustituyendo:
+
+En CsCl:
+$$
+I_r = \frac{I_{331}}{I_{420}} = \frac{(-18.0 + 7.59)^2}{(18.0 + 7.59)^2} = 0.17
+$$
+
+En NaCl:
+$$
+I_r =  \frac{ (-18.0 + 7.59)^2}{[(18.0 + 7.59)^2} = 0.17
+$$
+
+En ZnS:
+
+$$
+I_r = \frac{ (18.0 - 7.59i)^2}{(18.0 - 7.59)^2} = 3.45
+$$
+
+Como al determinar la intensidad relativa de (331) y (420), se observa que $I_{331}$ > $I_{420}$, la más semejante es la del ZnS, una cúbica F, puesto que $\frac{I_{331}}{I_{420}}$ > 1.
+
+Para calcular $d$ y $a$ se emplea la Ley de Bragg de la Ec(1) para determinar $d$ y la Ec.(2) para el parámetro de malla. Dado $\lambda = 1.5418 \rm \dot{A}$ y empleando 2$\theta = 78.39$ º, es decir, el pico (420):
+
+Sea n=1:
+$$
+d= \frac{\lambda}{2sen\theta} = \frac{1.5418}{2sen(78.39/2)} = 1.22 \rm \textcolor{white}{a} \dot{A}
+$$
+
+Y, para el parámetro de malla:
+
+$$
+a =  d_{hkl} \cdot \sqrt{h^2 + k^2 + l^2} = 
+$$
+$$
+= 1.22 \cdot \sqrt{4^2 + 2^2 + 0^2} 5.456 \rm \textcolor{white}{a} \dot{A}
+$$
+
+\textbf{4.- } El problema de las fases nace a partir de que en los experimentos no es posible obtener información de la fase, puesto que solo se puede obtener del patrón de difracción, y, por tanto, de la intensidad y del modulo de la densidad electrónica. De este modo, se pierde información sobre la posición de los átomos en la estructura.
+
+Contestando a la cuestión, en muestras pulverizadas no es posible determinar la estructura del material de forma exacta. Sin embargo, con métodos como el de dispersión anómala (o el método de Rietveld mismo) se puede realizar una aproximación. En éste, se consideran los cambios en la intensidad de los picos debido a efectos cuánticos de la interacción del rayo incidente con los átomos. Realizando el experimento con diferentes longitudes de onda, es posible identificar las posiciones de los átomos en los puntos en los que la intensidad cambia. 
+
+\textbf{5.- } Los picos de intensidad son menores para ángulos mayores, asumiendo el mismo valor teórico del factor de estructura. Es posible explicar esta afirmación partiendo de la Ec.(3), es decir, $I_{hkl} \propto G(\theta) \cdot m_{hkl} \cdot |F_{hkl}|^2$. En esta ecuación se observa que la intensidad depende de varios factores. Para este caso, destacaremos el factor geométrico $G(\theta)$, el cual implica una dependencia de la intensidad con el ángulo.
+
+De este modo, la intensidad cae de forma exponencial con el ángulo, lo que explica que para ángulos mayores disminuyan los picos de intensidad. Cabe tener en cuenta que en los difractogramas aparece un ruido de fondo debido a las vibraciones térmicas, lo que conlleva a la pérdida de picos de poca intensidad.
+
+\textbf{6.-} Como se ha podido comprobar a los largo del experimento de difracción de rayos X, la intensidad de los picos depende de numerosos factores. Empleando nuevamente la ecuación de $I_{hkl}$ de la cuestión anterior, podemos destacar entre estos factores el factor de estructura $|F_{hkl}|$ (el cual depende del factor de scattering $f_j$) y el de multiplicidad $m_{hkl}$.
+
+Sin embargo, la intensidad depende de otros factores relacionados con la preparación de la muestra. Dado que para medirla es necesario pulverizarla de forma correcta, se deben crear con ello direcciones privilegiadas, pues de hacerlo mal siendo, se pierden familias de planos que no se podrán observar en el patrón de difracción o serán ocultados por otros picos producidos por estas direcciones.
+
+\textbf{7.-} En el fenómeno de difracción, las aberturas permiten observar un patrón de difracción con picos fácilmente identificables y sin ruido de fondo.
+
+Una forma de monocromatizar los rayos $X$, es mediante el empleo de monocromadores. Estos impiden el paso de las lineas $k\beta$. Otra forma es utilizando filtros beta, los cuales poseen altos coeficientes de absorción entre las líneas $k\alpha$ y $k\beta$, dejando pasar únicamente la radiación similar a la de $k_{\alpha}$. 
+
+Ambos métodos poseen inconvenientes. El primero, las líneas $k\beta$ disminuyen la intensidad y aumentan la resolución; y el segundo, provoca que se observen dobleces en los picos debido a que permiten pasar a la línea $k\beta$, problema que es posible evitar implementando dispositivos que filtren esta línea.
+
+
+%----------------------------------------------------------------»
+% c - Bibliografía
+%----------------------------------------------------------------»
+
+% El entorno «thebibliography» nos sirve para construir la bibliografía. Cada \bibtem es una referencia que hemos usado en nuestro documento. 
+
+% Para citar las referencias usamos el comando \cite{etiqueta}, tal y como se hizo en el último párrafo de esta plantilla.  Por supuesto, la «etiqueta» es el nombre que le hemos dado a la referencia. En el caso del primer libro de esta bibliografía vemos que la etiqueta es «ejemplo», las otras son «libro1», «libro2», etc. Usted puede usar cualquier etiqueta siempre y cuando no se repita en otra referencia. Cada referencia tiene etiqueta única.
+
+
+
+
+
+
+
+
+%================================================================»
+% EXPLICACIONES FINALES
+%================================================================»
+%----------------------------------------------------------------»
+% Signos en LaTeX
+%----------------------------------------------------------------»
+
+% Como se ha notado, escribir el signo % (porcentaje) produce «comentarios» dentro del código, explicaciones que no son tomadas en cuenta a la hora de «compilar» el código escrito. Si se quiere incorporar un signo % (porcentaje) como parte del texto que se está escribiendo debe escribirse con la barra de instrucción habitual, así: \% 
+
+% Hay otros signos a los que también es necesario antecederlos de la barra \ - Son los siguientes:
+
+% \		carácter inicial de comando			Se escribiría: \tt\char‘\\
+% { }	abre y cierra bloque de código		Se escribiría: \{, \}
+% $		abre y cierra el modo matemático		Se escribiría: \$
+% &		tabulador (en tablas y matrices)		Se escribiría: \&
+% #		señala parámetro en las macros		Se escribiría: \_ , \^{}
+% _, ^	para subíndices y exponentes			Se escribiría: \#
+% ~		para evitar cortes de renglón			Se escribiría: \~{}
+
+%----------------------------------------------------------------»
+% Cambios en la estética de las palabras
+%----------------------------------------------------------------»
+
+% Este es el listado de las instrucciones básicas:
+
+% - Negrita: 	\textbf{}
+% - Itálica: 	\textit{}
+% - Slanted:		\textsl{}
+% - Sans Serif:	\textsf{}
+% - Versalitas:	\textsc{}
+% - Typewriter: 	\texttt{}
+% - Enfático:	\emph{}
+
+% Lo que se escriba dentro de los corchetes de cada instrucción será lo que se verá modificado en el texto. Ejemplo:
+
+% \sc{Esto es una frase en versalitas}
+
+% Por supuesto, la anterior instrucción no compilará en este documento porque la antece un signo de % (porcentaje), que es el signo de los «comentarios». Pero, pruebe en el texto normal y verá los cambios con cada una de las anteriores instrucciones. 
+
+%--------------------------------»»
+% NOTA IMPORTANTE
+% Si alguien quiere anexar tablas o gráficos al documento, le recomiendo acercarse a la sección que lo explica en los manuales, guías o instructivos que están en BlackBoard. 
+%--------------------------------»»
+
+\end{document}
