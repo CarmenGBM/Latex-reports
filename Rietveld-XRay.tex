@@ -67,7 +67,7 @@
 % II - CUERPO DEL DOCUMENTO
 %================================================================»
 
-% Después de todo el preámbulo nos adentramos en la escritura del trabajo. El CUERPO DEL DOCUMENTO en LaTeX siempre inicia con las siguientes dos instrucciones:
+
 
 \begin{document}
 
@@ -78,23 +78,7 @@
 \date{15 de Marzo de 2017} 
 
 
-% En el CUERPO DEL DOCUMENTO es donde vamos a encontrar:
 
-% - Abstract
-% - Secciones y subsecciones
-% - Tabla de contenido
-% - Tablas
-% - Gráficos
-% - Notas al pie y al márgen
-% - Párrafos especiales (cita)
-% - Bibliografía
-
-%----------------------------------------------------------------»
-% a - Creación del resumen (Abstract)
-%----------------------------------------------------------------»
-
-% El abstract es el resumen del ensayo. Se expone, entre cuatro y siete líneas, la naturaleza del escrito, su tema, el tipo de indagación y los intereses del texto. 
-%\noindent
 
 \twocolumn[
 \begin{@twocolumnfalse}
@@ -110,27 +94,10 @@
 
 
 
-
-%\begin{abstract}
-%Se estudia mediante difracción de rayos \textit{X} la estructura cristalina de unos compuestos seleccionados (galeno (PbS) y otro problema) empleando  los métodos de caracterización apropiados (análisis de Rietveld). 
+\section{Introducción} 
 
 
-%\end{abstract}
 
-%----------------------------------------------------------------»
-% b - Escribir el Epígrafe (Opcional)
-%----------------------------------------------------------------»
-
-% Uno puede escribir o no un epígrafe al principio de un ensayo. Ustedes quizá lo han visto con frecuencia en diferentes tipos de escritos (ensayos, novelas, etc.) - Lo importante es que el epígrafe aluda a algo importante que usted quiere comunicar en el ensayo. 
-
-%----------------------------------------------------------------»
-% c - Inicio de las secciones del documento
-%----------------------------------------------------------------»
-
-\section{Introducción} % La instrucción  \section con el signo * hace que no quede numerado.
-
-
-% En la «Introducción» se escribe una preparación a la discertación. La idea es atrapar al lector con sus propios intereses. Hacerle caer en cuenta que a él le gustaría leer sobre lo que usted le va a contar, especialmente le gustaría saber las razones por las cuales él debería ser un inventor como usted!!
 
 Un difractómetro es un aparato que emite rayos \textit{X} sobre una muestra a estudiar y recoge los resultados obtenidos. En el momento en el que un haz de rayos \textit{X} incide en un cristal, una parte atraviesa el cristal y la otra es dispersada por los electrones de los átomos del cristal. 
 
@@ -178,9 +145,7 @@ F_{hkl} = \sum_{j=1}^{j=n} f_j[cos2\pi r  + isin2\pi r]
 
 
 Donde $r$ es $hx_j + ky_j + lz_j$, $f_j$ es el factor de scattering atómico y $j$ es el elemento.
-% ----------------------
-% La intrucción \underline se usa para subrayar frases. 
-% ----------------------
+
 \section{Método experimental}
 
  Para realizar el análisis de la muestra, inicialmente ésta se pulveriza y se coloca en el portamuestras, evitando que queden partículas alrededor de éste que puedan falsar el análisis. 
@@ -209,7 +174,7 @@ Finalmente, se realiza el mismo proceso para el material problema.
 
 
 \section{Resultados y análisis}
-% Aquí se empieza con los argumentos. El título de cada uno de ellos puede modificarse y ser más acorde con el tipo de argumento que va a ofrecer. Recuerde que se trata de RAZONES y no de OPINIONES. 
+
 De la difracción de rayos $X$ se obtiene el siguiente difractograma \footnote{Se incluye la imagen en tamaño óptimo en el apéndice 5.2.}:
 
 \begin{figure}[H]
@@ -461,7 +426,6 @@ Para la Figura 3 de la muestra problema:
 \label{Figura 1:Dibujo}
 \end{figure}
 
-% Este apartado se construye en dos columnas. Eso es gracias al paquete «multicol» que escribimos en el «preámbulo». Determinamos la cantidad de columnas dentro del segundo corchete del ambiente «multicols», tal y como sigue:
 \begin{thebibliography}{99}
 
 
@@ -585,63 +549,8 @@ Una forma de monocromatizar los rayos $X$, es mediante el empleo de monocromador
 Ambos métodos poseen inconvenientes. El primero, las líneas $k\beta$ disminuyen la intensidad y aumentan la resolución; y el segundo, provoca que se observen dobleces en los picos debido a que permiten pasar a la línea $k\beta$, problema que es posible evitar implementando dispositivos que filtren esta línea.
 
 
-%----------------------------------------------------------------»
-% c - Bibliografía
-%----------------------------------------------------------------»
-
-% El entorno «thebibliography» nos sirve para construir la bibliografía. Cada \bibtem es una referencia que hemos usado en nuestro documento. 
-
-% Para citar las referencias usamos el comando \cite{etiqueta}, tal y como se hizo en el último párrafo de esta plantilla.  Por supuesto, la «etiqueta» es el nombre que le hemos dado a la referencia. En el caso del primer libro de esta bibliografía vemos que la etiqueta es «ejemplo», las otras son «libro1», «libro2», etc. Usted puede usar cualquier etiqueta siempre y cuando no se repita en otra referencia. Cada referencia tiene etiqueta única.
 
 
 
-
-
-
-
-
-%================================================================»
-% EXPLICACIONES FINALES
-%================================================================»
-%----------------------------------------------------------------»
-% Signos en LaTeX
-%----------------------------------------------------------------»
-
-% Como se ha notado, escribir el signo % (porcentaje) produce «comentarios» dentro del código, explicaciones que no son tomadas en cuenta a la hora de «compilar» el código escrito. Si se quiere incorporar un signo % (porcentaje) como parte del texto que se está escribiendo debe escribirse con la barra de instrucción habitual, así: \% 
-
-% Hay otros signos a los que también es necesario antecederlos de la barra \ - Son los siguientes:
-
-% \		carácter inicial de comando			Se escribiría: \tt\char‘\\
-% { }	abre y cierra bloque de código		Se escribiría: \{, \}
-% $		abre y cierra el modo matemático		Se escribiría: \$
-% &		tabulador (en tablas y matrices)		Se escribiría: \&
-% #		señala parámetro en las macros		Se escribiría: \_ , \^{}
-% _, ^	para subíndices y exponentes			Se escribiría: \#
-% ~		para evitar cortes de renglón			Se escribiría: \~{}
-
-%----------------------------------------------------------------»
-% Cambios en la estética de las palabras
-%----------------------------------------------------------------»
-
-% Este es el listado de las instrucciones básicas:
-
-% - Negrita: 	\textbf{}
-% - Itálica: 	\textit{}
-% - Slanted:		\textsl{}
-% - Sans Serif:	\textsf{}
-% - Versalitas:	\textsc{}
-% - Typewriter: 	\texttt{}
-% - Enfático:	\emph{}
-
-% Lo que se escriba dentro de los corchetes de cada instrucción será lo que se verá modificado en el texto. Ejemplo:
-
-% \sc{Esto es una frase en versalitas}
-
-% Por supuesto, la anterior instrucción no compilará en este documento porque la antece un signo de % (porcentaje), que es el signo de los «comentarios». Pero, pruebe en el texto normal y verá los cambios con cada una de las anteriores instrucciones. 
-
-%--------------------------------»»
-% NOTA IMPORTANTE
-% Si alguien quiere anexar tablas o gráficos al documento, le recomiendo acercarse a la sección que lo explica en los manuales, guías o instructivos que están en BlackBoard. 
-%--------------------------------»»
 
 \end{document}
