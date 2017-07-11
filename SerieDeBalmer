@@ -1,0 +1,328 @@
+%a - Definición de la Clase del Documento 
+%----------------------------------------------------------------»
+
+
+%\documentclass[11pt,letterpaper]{article}
+\documentclass[a4paper,twocolumn,10pt]{article}
+
+%----------------------------------------------------------------»
+% b - Paquetes para trabajar en español 
+%----------------------------------------------------------------»
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{anysize}
+\usepackage{floatrow}
+\marginsize{3cm}{2.5cm}{1.5cm}{1.5cm}
+\usepackage[rightcaption]{sidecap} %para pies de tabla a la derecha
+
+
+
+%----------------------------------------------------------------»
+% c - Paquetes para solucionar el copiado del pdf
+%----------------------------------------------------------------»
+
+\usepackage{times}		
+\usepackage[T1]{fontenc}
+
+
+%----------------------------------------------------------------»
+% d - Paquetes especiales (Según las necesidades del documento)
+%----------------------------------------------------------------»
+
+\usepackage[colorinlistoftodos]{todonotes} %Para insertar notas al lado
+\usepackage{graphicx} %Para usar imágenes
+\usepackage{multirow, array}
+\usepackage{float} % para usar [H]
+\usepackage{tikz} %Para construir gráficos con código
+\usepackage{epigraph} %Hacer epígrafes
+\usepackage{multicol} %Construir múltiples columnas en el documento
+\usepackage{color} %Para darle color a la fuentes
+\usepackage{soul} %Para tachar palabras
+\usepackage{ulem} %Para subrayados y tachados especiales (\uuline, \uwave, \xout) Aunque casi nunca se usan, a veces pueden introducirse para remarcar algo. 
+
+%----------------------------------------------------------------»
+% e - Paquete para generar links (Si el doc. tiene hipervínculos)
+%----------------------------------------------------------------»
+
+\usepackage[backref]{hyperref}	% Soporte para generación de Links - Ojalá siempre el último paquete nombrado
+\hypersetup{pdfborder={0 0 0}}	% Quitarle los bordes a los links
+
+%----------------------------------------------------------------»
+% f - Arreglos sobre la estética de los párrafos (Opcional)
+%----------------------------------------------------------------»
+
+\setlength\parindent{8pt}	% Si se quiere suprimir la sangría de los párrafos
+\setlength{\parskip}{2mm}	% Si se quiere espaciar todos los párrafos
+
+
+
+%----------------------------------------------------------------»
+% g - Autor, título y fecha del Documento
+%----------------------------------------------------------------»
+
+\author{\large{Carmen García Bermejo}\\ 
+Física Cuántica}
+\title{\textbf{P9 - Serie de Balmer del Hidrógeno}}
+\date{12 de Abril de 2017} 
+
+
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+
+Se observan las líneas espectrales $H_{\alpha}$, $H_{\beta}$ y $H_{\gamma}$ del espectro visible del átomo de hidrógeno. Así mismo, se mide la longitud de onda de dichas líneas y, a partir de éstas, se determina la constante de Rydberg $R_{\infty}$, obteniéndose$R_{\infty} = (1.085 \pm 0.003) \cdot 10^{5} \textcolor{white}{a} cm^{-1}$.
+
+
+\end{abstract}
+
+
+\section{Introducción}
+
+Para las longitudes de onda $\lambda$ de las líneas $H_{\alpha}$, $H_{\beta}$ y $H_{\gamma}$ de la serie de Balmer, se tiene que $[1]$:
+
+\begin{equation}
+\lambda = \lambda_0 \left[\frac{n^2}{n^2 - 2^2}\right]
+\end{equation}
+
+Donde $\lambda_0 = 3.647054 \cdot 10^{-5}$ cm y n=3,4,5... De forma más general, todas las series de emisión pueden obtenerse $[1]$:
+
+\begin{equation}
+\frac{1}{\lambda} = R\left[\frac{1}{n'^2}- \frac{1}{n^2}\right]
+\end{equation}
+
+Donde $n=n'=1,2,3...$. Para la serie de Balmer se emplea $n'=2$. Así mismo, para átomos con $Z=1$, existe la relación $[1]$:
+
+\begin{equation}
+R = \frac{\mu}{m_e}R_{\infty}
+\end{equation}
+
+Donde $m_e$ es la masa del electrón, $\mu$ la masa reducida del sistema y $R_{\infty} = 109737.3 \rm cm^{-1}$. Así mismo, para este experimento, el espectro de emisión es producido en la lámpara de Balmer, de este modo, las líneas espectrales $H_{\alpha}$, $H_{\beta}$ y $H_{\gamma}$ son difractadas por una red de difracción con ángulos $\theta$ diferentes según su longitud de onda $\lambda$, de acuerdo con $[1]$:
+
+\begin{equation}
+d \cdot sen\theta = \lambda \cdot m
+\end{equation}
+
+Donde $m$ en este experimento es un máximo de orden 1, y $d=1.67 \mu m$ es la constante de red.
+
+\section{Resultados y análisis}
+
+Inicialmente, se marca en una transparencia pegada a la pantalla las posiciones del centro del haz (máximo de orden 0) y de las líneas del espectro difractadas en la parte posterior de la pantalla (máximos de orden 1). A continuación, se mide la distancia entre las posiciones de las líneas, de extremo a extremo, y se divide entre 2, por lo que se obtiene la distancia de la línea al centro del haz, es decir, $b$. 
+
+Así, para cada línea espectral se tiene:
+
+Para $H_{\alpha}$:
+
+$$
+b_{\alpha} = \frac{37.7 - 13.2}{2} = (12.25 \pm 0.05) \rm \textcolor{white}{a} cm
+$$
+
+Para $H_{\beta}$:
+
+$$
+b_{\beta} = \frac{34.2 - 16.8}{2} = (8.70 \pm 0.05) \rm \textcolor{white}{a} cm
+$$
+
+Para $H_{\gamma}$:
+
+$$
+b_{\gamma} = \frac{33.4 - 18.0}{2} = (7.70  \pm 0.05) \rm \textcolor{white}{a} cm
+$$
+
+A continuación, se mide el valor de $a_1$, es decir, la distancia entre la pantalla y la rendija, obteniéndose $a_1 = (27.50  \pm 0.10) \textcolor{white}{a} cm$, de este modo, el valor de $a$, distancia entre la lámpara de Balmer y la pantalla, así $a = (28.43 \pm 0.10) \textcolor{white}{a} cm$.
+
+A partir de la Ec.(4) se determinan los valores de las longitudes de onda de las líneas espectrales. Para ello, es necesario obtener el valor de $\theta$ para cada caso. Éste se obtiene a partir de los parámetros $b$ correspondiente a cada línea y $a$.
+
+Para $H_{\alpha}$:
+
+$$
+\theta_{\alpha} = arctg(b/a) = arctg(12.25/28.43) =  (23.34 \pm 0.14)º
+$$
+
+Para $H_{\beta}$:
+
+$$
+\theta_{\beta} = arctg(8.7/28.43) =  (17.02 \pm 0.12)º
+$$
+
+Para $H_{\gamma}$:
+
+$$
+\theta_{\gamma} = arctg(7.7/28.43) = (15.16 \pm 0.11)º
+$$
+ 
+De este modo, a partir de Ec.(4) se obtienen $\lambda_{\alpha}$, $\lambda_{\beta}$ y $\lambda_{\gamma}$ y sus correspondientes frecuencias $v_{\alpha}$, $v_{\beta}$ y $v_{\gamma}$:
+
+Para $H_{\alpha}$, su longitud de onda:
+
+$$
+\lambda_{\alpha} = \frac{d\cdot sen\theta_{\alpha}}{m} = \frac{1.67 \cdot 10^{-6} sen(23.34)}{1} =
+$$
+$$
+=  (6.61 \pm 0.05)\cdot 10^{-5} \rm \textcolor{white}{a} cm
+$$
+Y su frecuencia:
+$$
+v_{\alpha} = \frac{c}{\lambda} = \frac{3 \cdot 10^8}{6.61 \cdot 10^{-5}} = (4.54 \pm 0.03) \cdot 10^{12} s^{-1}
+$$
+
+Para $H_{\beta}$, la longitud de onda:
+
+$$
+\lambda_{\beta} =  \frac{1.67 \cdot 10^{-6} sen(17.02)}{1} = 
+$$
+$$
+= (4.89 \pm 0.04) \cdot 10^{-5} \rm \textcolor{white}{a} cm
+$$
+Y su frecuencia:
+$$
+v_{\beta} =  \frac{3 \cdot 10^8}{4.89 \cdot 10^{-5}} = (6.14 \pm 0.05) \cdot 10^{12} s^{-1}
+$$
+
+Para $H_{\gamma}$, la longitud de onda:
+
+$$
+\lambda_{\gamma} =  \frac{1.67 \cdot 10^{-6} sen(15.16)}{1} = 
+$$
+$$
+= (4.36 \pm 0.03)\cdot 10^{-5} \rm \textcolor{white}{a} cm
+$$
+Y su frecuencia:
+$$
+v_{\gamma} =  \frac{3 \cdot 10^8}{4.36 \cdot 10^{-5}} = (6.88 \pm 0.05) \cdot 10^{12} s^{-1}
+$$
+
+
+Se calculan los valores teóricos de $\lambda_{T\alpha}$, $\lambda_{T\beta}$ y $\lambda_{T\gamma}$ y $v_{T\alpha}$, $v_{T\beta}$ y $v_{T\gamma}$ para compararlos con los anteriores a partir de la Ec.(1):
+
+Para $H_{\alpha}$:
+
+$$
+\lambda_{T\alpha} = \lambda_0 \left[\frac{3^2}{3^2 - 2^2}\right] = 6.56 \cdot 10^{-5} \rm \textcolor{white}{a} cm
+$$
+Y su frecuencia:
+$$
+v_{T\alpha} =  \frac{3 \cdot 10^8}{ 6.56 \cdot 10^{-5}} = 4.57  \cdot 10^{12} \rm \textcolor{white}{a} s^{-1}
+$$
+
+
+Para $H_{\beta}$:
+
+$$
+\lambda_{T\beta} =   \lambda_0 \left[\frac{4^2}{4^2 - 2^2}\right] = 4.86 \cdot 10^{-5} \rm \textcolor{white}{a} cm
+$$
+Y su frecuencia:
+$$
+v_{T\beta} =  \frac{3 \cdot 10^8}{4.86 \cdot 10^{-5}} = 6.17 \cdot 10^{12} \textcolor{white}{a}  s^{-1}
+$$
+
+
+Para $H_{\gamma}$:
+
+$$
+\lambda_{T\beta} =   \lambda_0 \left[\frac{5^2}{3^2 - 5^2}\right] = 4.34 \cdot 10^{-5} \rm \textcolor{white}{a} cm
+$$
+Y su frecuencia:
+$$
+v_{T\gamma} =  \frac{3 \cdot 10^8}{4.34 \cdot 10^{-5}} = 6.91 \cdot 10^{12} \textcolor{white}{a}  s^{-1}
+$$
+
+
+Se observan que son compatibles dentro de los intervalos de error. 
+
+A continuación, se representa en un sistema de coordenadas los inversos de $\lambda_{\alpha}$, $\lambda_{\beta}$ y $\lambda_{\gamma}$ encontradas de forma experimental en función de la variable $x=1/4 - 1/n^2$, describiendo la relación de la Ec.(2), por lo que la pendiente $m$ es la constante de Rydberg $R$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{balmer.jpg}
+\caption{Se representa gráficamente la relación entre la longitud de onda de las líneas espectrales y $x = (\frac{1}{4} - \frac{1}{n^2})$. Del ajuste por mínimos cuadrados a una recta que pasa por el origen se obtiene una pendiente $m = (1.086 \pm 0.003)\cdot 10^{5} \textcolor{white}{a} cm^{-1}$.}
+\label{Figura 3:balmer}
+\end{figure}
+
+De la regresión lineal se obtiene una pendiente $m = (1.091 \pm 0.008)\cdot 10^{5} \textcolor{white}{a}cm^{-1}$, que es el valor de la constante de Rydberg $R$ obtenido de forma experimental, luego $R = (1.091 \pm 0.008)\cdot 10^{5} \textcolor{white}{a} cm^{-1}$.
+
+De este modo, a partir de la Ec.(3) es posible obtener el valor experimental de $R_{\infty}$:
+
+$$
+R_{\infty} = R \cdot \frac{m_e}{\mu} = 1.091 \cdot 10^{5} \cdot \frac{m_e }{0.999m_e} = 
+$$
+$$
+= (1.092 \pm 0.008) \cdot 10^{5} \textcolor{white}{a} cm^{-1}
+$$
+
+De forma teórica, realizando el mismo proceso con $\lambda_{T\alpha}$, $\lambda_{T\beta}$ y $\lambda_{T\gamma}$ , para $R_T$ se obtiene que $R_T= 1.0974 \cdot 10^5 cm^{-1}$, por lo que, a partir de la Ec.(3), se tiene que $R_{T\infty} = 1.0985$ y el valor experimental comúnmente aceptado es $R_{\infty}  = 109737.3  \textcolor{white}{a} cm^{-1}$.
+
+Dados estos valores, se observa que lo obtenido de forma experimental es compatible, dentro de los intervalos de error, con ambos valores, el teórico y el experimental aceptado comúnmente.
+
+\section{Conclusión}
+
+Los valores obtenidos muestran que tanto el montaje experimental como el procedimiento llevado a cabo, son acordes a la teoría y llevan a los resultados inicialmente esperados dentro de la incertidumbre experimental.
+
+\section{Cuestiones}
+
+\textbf{1.-} Esquema del dispositivo experimental usado en la experiencia:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{bal.jpg}
+\caption{Dibujo del esquema del dispositivo experimental.}
+\label{Figura 3:balmer}
+\end{figure}
+
+Donde:
+\begin{itemize}
+\item a: Lámpara de gas
+\item b: Lente de imagen f = 50 mm
+\item c: Ranura ajustable
+\item d: Lente de imagen f = 50 mm
+\item e: Rejilla 
+\item f: Pantalla (donde se miden las líneas espectrales)
+\end{itemize}
+
+\begin{thebibliography}{5}
+
+\bibitem{El poder de los super poderes} Guía del experimento.
+	
+\bibitem{El poder de los super poderes} TAYLOR \textit{Physics for the science and technology}. Editorial Reverté. $6^{a}$ edición. Páginas: 13$-$35
+
+\end{thebibliography}
+
+\section{Apéndice de errores}
+
+\begin{itemize}
+\item La incertidumbre de error en los valores de $a_1$ y $b$ se obtienen a partir de la incertidumbre del aparato de medida.
+\item La incertidumbre en los ángulos $\theta_{\alpha}$, $\theta_{\beta}$ y $\theta_{\gamma}$ se obtiene a partir de la propagación de errores:
+
+$$
+\theta  \pm \Delta \theta  = tg(\theta \pm \Delta \theta) = tg\theta  \pm (1 \pm tan^2\theta)\Delta \theta)
+$$
+\item La incertidumbre de error en $\lambda_{\alpha}$, $\lambda_{\beta}$ y $\lambda_{\gamma}$ se obtiene:
+$$
+\Delta \lambda = \mu \cdot \Delta sen\theta =  \mu \cdot \Delta \theta cos\theta 
+$$
+Con $\Delta \theta$ en radianes.
+
+\item La incertidumbre de error en $R$ se obtiene por el ajuste de mínimos cuadrados.
+\item El error en $R_{\infty}$ se obtiene mediante:
+$$
+\Delta R_{\infty} = \frac{1}{0.999} \cdot \Delta R 
+$$
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
